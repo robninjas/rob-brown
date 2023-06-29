@@ -145,6 +145,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77aeb367eb084c4b8b7031ce7297529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &74602100
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74602095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000002, y: 2.0000002, z: 2.000001}
+  m_Center: {x: 0.00000011920929, y: -1.0164395e-20, z: -0.00000017881398}
 --- !u!1001 &81725565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280,6 +293,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9bfa90ca525224048ac7a0384f83dd6d, type: 2}
     - target: {fileID: -927199367670048503, guid: 0b09329add2288e46af3ab00bb4d1cc2, type: 3}
       propertyPath: m_Name
+      value: coin
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0b09329add2288e46af3ab00bb4d1cc2, type: 3}
+      propertyPath: m_TagString
       value: coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3067,6 +3084,7 @@ GameObject:
   - component: {fileID: 1284053621}
   - component: {fileID: 1284053619}
   - component: {fileID: 1284053623}
+  - component: {fileID: 1284053624}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3145,6 +3163,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1892903568}
+--- !u!114 &1284053624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284053618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f04636a516a85a4188539f4d1b09a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: {fileID: 1268341939}
 --- !u!1 &1294329856 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 1a3e3b7e3e65ab74b85d4b467c829b59, type: 3}
