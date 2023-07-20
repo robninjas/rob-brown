@@ -13,11 +13,39 @@ public class EnemyControls : MonoBehaviour
     private Transform target;
 
     public bool isFollowingTarget;
-    private bool isAttackingTarget;
+    public bool isAttackingTarget;
 
     private float chasingPlayer = 0.01f;
     public float currentAttackingTime;
     public float maxAttackingTime = 2f;
+
+    void Attack()
+    {
+        if (!isAttackingTarget)
+        {
+            return;
+        }
+
+        currentAttackingTime += Time.deltaTime;
+
+        if (currentAttackingTime > maxAttackingTime)
+        {
+            EnemyAttack(Random.Range(1, 7));
+            currentAttackingTime = 0f;
+        }
+
+        if (Vector3.Distance(transform.position, target.position) > attackingDistance + chasingPlayer)
+        {
+            isAttackingTarget = false;
+            isFollowingTarget = true;
+        }
+    }
+
+    public void EnemyAttack(int attack)
+    {
+        animatorEnemy.SetTrigger("Attack" + attack.ToString());
+        print("Executed Attack #: " + attack.ToString());
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,14 +61,19 @@ public class EnemyControls : MonoBehaviour
 
     void FollowTarget()
     {
-        if (!isFollowingTarget) return;
+        if (!isFollowingTarget) { 
+            rigidbodyEnemy.isKinematic = true;
+            return;
+        }
 
         if (Vector3.Distance(transform.position, target.position) >= attackingDistance)
         {
+            rigidbodyEnemy.isKinematic = false;
+
             direction = target.position - transform.position;
             direction.y = 0;
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 20);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 100);
 
             if (rigidbodyEnemy.velocity.sqrMagnitude != 0)
             {
@@ -49,10 +82,28 @@ public class EnemyControls : MonoBehaviour
             }
         }
 
+        else if (Vector3.Distance(transform.position, target.position) <= attackingDistance)
+        {
+            rigidbodyEnemy.isKinematic = false;
+
+            rigidbodyEnemy.velocity = Vector3.zero;
+
+            animatorEnemy.SetBool("Walk", false);
+
+            isFollowingTarget = false;
+
+            isAttackingTarget = true;
+        }
+
     }
 
     private void FixedUpdate()
     {
         FollowTarget();
+    }
+
+    private void Update()
+    {
+        Attack();
     }
 }
