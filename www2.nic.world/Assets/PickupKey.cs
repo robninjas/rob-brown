@@ -9,5 +9,6 @@ public class PickupKey : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         gameObject.SetActive(false);
+        teleporterDust.Play();
     }
 }

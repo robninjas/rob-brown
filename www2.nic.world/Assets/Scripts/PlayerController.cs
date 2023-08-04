@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     // store how far away Codey is from the ground
     public float centerOfCodeyToFeetDistance;
 
+    public float verticalVelocity;
+
     // when the script starts
     // initialize Codey on the ground
     // and get references to Codey's rigidbody, animator, 
@@ -26,7 +28,9 @@ public class PlayerController : MonoBehaviour
         onGround = true;
         rigidBody = GetComponent<Rigidbody>();
         animatorClip = GetComponent<Animator>();
-        centerOfCodeyToFeetDistance = GetComponent<Collider>().bounds.extents.y;
+        centerOfCodeyToFeetDistance = GetComponent<Collider>().bounds.extents.y - 2;
+
+        verticalVelocity = rigidBody.velocity.y;
     }
 
     void FixedUpdate()
@@ -48,12 +52,13 @@ public class PlayerController : MonoBehaviour
 
 
         // get Codey's current y velocity
-        float verticalVelocity = rigidBody.velocity.y;
 
         // ask Unity to see if Codey is colliding with the ground
         // by looking from Codey's center down 
         // but only look through the distance from Codey's center to his feet
         // if Codey is on the ground, then make sure his vertical velocity is 0
+
+        Debug.DrawRay(transform.position, Vector3.down * centerOfCodeyToFeetDistance, Color.red);
         if (Physics.Raycast(transform.position, Vector3.down, centerOfCodeyToFeetDistance))
         {
             verticalVelocity = 0;

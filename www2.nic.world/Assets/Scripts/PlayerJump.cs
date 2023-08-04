@@ -32,7 +32,7 @@ public class PlayerJump : MonoBehaviour
     {
         // if the user presses the jump button (space)
         // and Codey is on the ground
-        if (Input.GetButtonDown("Jump") && playerController.onGround)
+        if (Input.GetAxis("Jump") != 0 && playerController.onGround)
         {
             // and apply a velocity in the up direction (0, 1, 0) with
             // a magnitude of Codey's jump strength

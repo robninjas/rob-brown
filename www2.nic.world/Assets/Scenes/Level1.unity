@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 68873018}
   - component: {fileID: 68873017}
   - component: {fileID: 68873016}
+  - component: {fileID: 68873020}
   m_Layer: 0
   m_Name: TeleportPad
   m_TagString: Untagged
@@ -399,6 +400,21 @@ Transform:
   m_Father: {fileID: 1425964340}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &68873020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68873015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbf312ff85c2f94f92debf3351c536e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gem: {fileID: 468184293}
+  background: {fileID: 1875767817}
+  teleportDestination: Level1_A
 --- !u!4 &79126317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a3614c18f3e6c7142832df541b2a093c, type: 3}
@@ -15339,8 +15355,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -275.2, y: 182}
-  m_SizeDelta: {x: 249.7, y: 136.4}
+  m_AnchoredPosition: {x: -270.1, y: 92}
+  m_SizeDelta: {x: 259.8, y: 115.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &467818243 stripped
 Transform:
