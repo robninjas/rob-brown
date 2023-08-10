@@ -17,7 +17,9 @@ public class RandomSpawn : MonoBehaviour
     {
         for(int spawnList = 0; spawnList < spawnPoints.Length; spawnList++)
         {
+            Debug.Log(spawnPoints.Length);
             possibleSpawns.Add(spawnPoints[spawnList]);
+            Debug.Log(possibleSpawns.Count);
         }
     }
 
